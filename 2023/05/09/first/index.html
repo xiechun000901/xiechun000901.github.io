@@ -1,0 +1,543 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RNA-seq | 谢淳的生信杂货铺</title><meta name="author" content="谢淳"><meta name="copyright" content="谢淳"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="转录组测序分析 Author：谢淳  Update：2023-03-13  1.工作目录管理这一部分非常非常非常重要，拥有一个优秀的工作习惯比什么都重要 1.1 目录一览## 示例如下： ├── database # 数据库存放目录，包括参考基因组，注释文件，公共数据库等 ├── project  # 项目分析目录     └── Purple #具体项目         ├── data # 数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RNA-seq">
+<meta property="og:url" content="http://example.com/2023/05/09/first/index.html">
+<meta property="og:site_name" content="谢淳的生信杂货铺">
+<meta property="og:description" content="转录组测序分析 Author：谢淳  Update：2023-03-13  1.工作目录管理这一部分非常非常非常重要，拥有一个优秀的工作习惯比什么都重要 1.1 目录一览## 示例如下： ├── database # 数据库存放目录，包括参考基因组，注释文件，公共数据库等 ├── project  # 项目分析目录     └── Purple #具体项目         ├── data # 数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-05-09T08:56:03.000Z">
+<meta property="article:modified_time" content="2023-05-10T07:32:09.159Z">
+<meta property="article:author" content="谢淳">
+<meta property="article:tag" content="生物信息学 Python R Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/05/09/first/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RNA-seq',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-10 15:32:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="谢淳的生信杂货铺" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="谢淳的生信杂货铺"><span class="site-name">谢淳的生信杂货铺</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RNA-seq</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-09T08:56:03.000Z" title="发表于 2023-05-09 16:56:03">2023-05-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-10T07:32:09.159Z" title="更新于 2023-05-10 15:32:09">2023-05-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RNA-seq"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="转录组测序分析"><a href="#转录组测序分析" class="headerlink" title="转录组测序分析"></a>转录组测序分析</h3><blockquote>
+<p>Author：谢淳  Update：2023-03-13</p>
+</blockquote>
+<h4 id="1-工作目录管理"><a href="#1-工作目录管理" class="headerlink" title="1.工作目录管理"></a>1.工作目录管理</h4><p>这一部分非常非常非常重要，拥有一个优秀的工作习惯比什么都重要</p>
+<h5 id="1-1-目录一览"><a href="#1-1-目录一览" class="headerlink" title="1.1 目录一览"></a>1.1 目录一览</h5><pre><code class="bash">## 示例如下：
+├── database # 数据库存放目录，包括参考基因组，注释文件，公共数据库等
+├── project  # 项目分析目录
+    └── Purple #具体项目
+        ├── data # 数据存放目录
+        │   ├── cleandata # 过滤后的数据
+           	│	├── trim_galore # trim_galore过滤
+           	│	└── fastp	    # fastp过滤
+        │   └── rawdata # 原始数据
+        ├──  Mapping # 比对目录
+        │   ├── Hisat2 # Hisat比对
+        └── Expression # 定量
+            ├── featureCounts # featureCounts
+</code></pre>
+<h5 id="1-2-详细命令"><a href="#1-2-详细命令" class="headerlink" title="1.2 详细命令"></a>1.2 详细命令</h5><pre><code class="bash"># 进入到个人目录
+cd ~
+
+## 1.建立数据库目录：在数据库下建立参考基因组数据库，注意命名习惯：参考基因组版本信息
+mkdir -p database/genome/GRCh38_release104
+
+## 2.建立项目分析目录
+mkdir project
+cd project
+
+mkdir Human-16-Asthma-Trans # 注意项目命名习惯：物种-样本数-疾病-分析流程
+cd Human-16-Asthma-Trans
+
+# 建立数据存放目录
+mkdir -p data/rawdata  data/cleandata/trim_galore  data/cleandata/fastp
+
+# 建立比对目录
+mkdir -p Mapping/Hisat2 Mapping/Subjunc
+
+# 建立定量目录
+mkdir -p Expression/featureCounts  Expression/Salmon
+
+# 查看整个分析目录准备结构
+tree
+
+├── data
+│   ├── cleandata
+│   	├── trim_galore
+│   	└── fastp		
+│   └── rawdata
+├── Expression
+│   ├── featureCounts
+│   └── Salmon
+└── Mapping
+    ├── Hisat2
+    └── Subjunc
+</code></pre>
+<h4 id="2-数据质控"><a href="#2-数据质控" class="headerlink" title="2.数据质控"></a>2.数据质控</h4><h5 id="2-1-fastqc"><a href="#2-1-fastqc" class="headerlink" title="2.1 fastqc"></a>2.1 fastqc</h5><p>目标：使用fastqc对原始数据进行质量评估</p>
+<pre><code class="bash"># 激活conda环境
+conda activate rna
+
+# 连接数据到自己的文件夹
+cd $HOME/project/Human-16-Asthma-Trans/data/rawdata
+ln -s /teach/t_rna/data/airway/fastq_raw25000/*gz ./
+
+# 使用FastQC软件对单个fastq文件进行质量评估，结果输出到qc/文件夹下
+fastqc  -t   6   -o  ./   SRR1039510_1.fastq.gz
+
+# 多个数据质控
+fastqc -t 6 -o ./  SRR*.fastq.gz
+
+# 使用MultiQc整合FastQC结果
+multiqc *.zip
+</code></pre>
+<h5 id="2-2-课后习题答案"><a href="#2-2-课后习题答案" class="headerlink" title="2.2 课后习题答案"></a>2.2 课后习题答案</h5><p>1.统计reads_1.fq文件种共有多少条reads？</p>
+<pre><code class="bash"># 答案不只一种，看看你能用集中方法算出来
+# NR表示行号
+# %表示除于取整
+zless -S SRR1039510_1.fastq.gz |awk &#39;&#123;if(NR%4==2)&#123;print&#125;&#125;&#39; |wc -l
+</code></pre>
+<p>2.输出reads_1.fq文件中所有的序列ID（即第一行）</p>
+<pre><code class="bash">zless -S SRR1039510_1.fastq.gz |awk &#39;&#123;if(NR%4==1)&#123;print&#125;&#125;&#39; |less -S
+</code></pre>
+<p>3.输出SRR1039510_1.fastq.gz文件中所有的序列（即第二行）</p>
+<pre><code class="bash">zless -S SRR1039510_1.fastq.gz |awk &#39;&#123;if(NR%4==2)&#123;print&#125;&#125;&#39; |less -S 
+</code></pre>
+<p>4.统计SRR1039510_1.fastq.gz碱基总数</p>
+<pre><code class="bash"># awk的高阶用法：BEGIN END模块
+zless -S SRR1039510_1.fastq.gz |awk &#39;&#123; if(NR%4==2)&#123;print&#125; &#125;&#39; | awk &#39;BEGIN &#123;num=0&#125; &#123;num=num+length($0)&#125; END&#123; print &quot;num=&quot;num&#125;&#39;
+</code></pre>
+<h4 id="3-数据过滤"><a href="#3-数据过滤" class="headerlink" title="3.数据过滤"></a>3.数据过滤</h4><p>目标：使用两款软件过滤fq文件，查看过滤前后的区别</p>
+<h5 id="3-1-trim-galore过滤"><a href="#3-1-trim-galore过滤" class="headerlink" title="3.1 trim_galore过滤"></a>3.1 trim_galore过滤</h5><pre><code class="bash"># 激活小环境
+conda activate rna
+
+# 新建文件夹trim_galore
+cd $HOME/project/Human-16-Asthma-Trans/data/cleandata
+mkdir trim_galore
+cd trim_galore
+
+# 单个样本，使用tab键补全路径
+trim_galore --phred33 -q 20 --length 36 --max_n 3 --stringency 3 --fastqc -o ./ --paired ../../rawdata/SRR1039510_1.fastq.gz ../../rawdata/SRR1039510_2.fastq.gz
+
+
+# 先生成一个变量,为样本ID
+ls $HOME/project/Human-16-Asthma-Trans/data/rawdata/*_1.fastq.gz | awk -F&#39;/&#39; &#39;&#123;print $NF&#125;&#39; | cut -d&#39;_&#39; -f1 &gt;ID
+
+# 多个样本 vim trim_galore.sh，以下为sh的内容
+rawdata=$HOME/project/Human-16-Asthma-Trans/data/rawdata
+cleandata=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore
+
+cat ID | while read id
+do
+  trim_galore --phred33 -q 20 --length 36 --max_n 3 --stringency 3 --fastqc --paired -o $&#123;cleandata&#125; $&#123;rawdata&#125;/$&#123;id&#125;_1.fastq.gz $&#123;rawdata&#125;/$&#123;id&#125;_2.fastq.gz
+done
+
+# 提交任务到后台
+nohup sh trim_galore.sh &gt;trim_galore.log &amp;
+</code></pre>
+<h5 id="3-2-fastp过滤"><a href="#3-2-fastp过滤" class="headerlink" title="3.2 fastp过滤"></a>3.2 fastp过滤</h5><pre><code class="bash">cd $HOME/project/Human-16-Asthma-Trans/data/cleandata
+mkdir fastp
+cd fastp
+
+# 定义文件夹
+cleandata=$HOME/project/Human-16-Asthma-Trans/data/cleandata/fastp/
+rawdata=$HOME/project/Human-16-Asthma-Trans/data/rawdata/
+
+# 单个样本
+fastp -i $rawdata/SRR1039510_1.fastq.gz \
+      -I $rawdata/SRR1039510_2.fastq.gz \
+      -o $cleandata/SRR1039510_1.fastp.fq.gz \
+      -O $cleandata/SRR1039510_2.fastp.fq.gz \
+      -h $cleandata/SRR1039510.html \
+      -j $cleandata/SRR1039510.json \
+      -l 36 -q 20 --compression=6 -R $cleandata/SRR1039510
+
+# 多个样本
+cat ../trim_galore/ID | while read id
+do
+fastp -l 36 -q 20 --compression=6 \
+  -i $&#123;rawdata&#125;/$&#123;id&#125;_1.fastq.gz \
+  -I $&#123;rawdata&#125;/$&#123;id&#125;_2.fastq.gz \
+  -o $&#123;cleandata&#125;/$&#123;id&#125;_1.fastp.fq.gz \
+  -O $&#123;cleandata&#125;/$&#123;id&#125;_2.fastp.fq.gz \
+  -R $&#123;cleandata&#125;/$&#123;id&#125; \
+  -h $&#123;cleandata&#125;/$&#123;id&#125;.fastp.html \
+  -j $&#123;cleandata&#125;/$&#123;id&#125;.fastp.json 
+done
+
+# 运行fastp脚本
+nohup sh fastp.sh &gt;fastp.log &amp;
+</code></pre>
+<h5 id="3-3-数据过滤前后比较"><a href="#3-3-数据过滤前后比较" class="headerlink" title="3.3 数据过滤前后比较"></a>3.3 数据过滤前后比较</h5><pre><code class="bash"># 进入过滤目录
+cd $HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore
+
+# 原始数据
+zcat $rawdata/SRR1039510_1.fastq.gz | paste - - - - &gt; raw.txt
+
+#  过滤后的数据
+zcat SRR1039510_1_val_1.fq.gz |paste - - - - &gt; trim.txt
+awk &#39;(length($4)&lt;63)&#123;print$1&#125;&#39; trim.txt &gt; Seq.ID
+
+head -n 100 Seq.ID &gt; ID100
+grep -w -f ID100 trim.txt | awk &#39;&#123;print$1,$4&#125;&#39; &gt; trim.sm
+grep -w -f ID100 raw.txt | awk &#39;&#123;print$1,$4&#125;&#39; &gt; raw.sm
+paste raw.sm trim.sm | awk &#39;&#123;print$2,$4&#125;&#39; | tr &#39; &#39; &#39;\n&#39; |less -S
+</code></pre>
+<h4 id="4-数据比对"><a href="#4-数据比对" class="headerlink" title="4.数据比对"></a>4.数据比对</h4><p>目标：使用两个软件对fq数据进行比对，得到比对文件<strong>sam&#x2F;bam</strong>，并探索比对结果。</p>
+<h5 id="4-1-参考基因组"><a href="#4-1-参考基因组" class="headerlink" title="4.1 参考基因组"></a>4.1 参考基因组</h5><pre><code class="bash">## 参考基因组准备:注意参考基因组版本信息
+# 下载，Ensembl：http://asia.ensembl.org/index.html
+# http://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/dna/
+
+# 进入到参考基因组目录
+cd $HOME/database/genome/GRCh38_release104
+
+# 下载基因组序列
+nohup wget -c http://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz &gt;dna.log &amp;
+
+
+# 下载转录组
+nohup wget -c http://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz &gt;rna.log &amp;
+
+# 下载基因组注释文件
+nohup wget -c http://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/Homo_sapiens.GRCh38.104.gtf.gz &gt;gtf.log &amp;
+
+# 解压
+nohup gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz Homo_sapiens.GRCh38.cdna.all.fa.gz &gt;unzip.log &amp;
+</code></pre>
+<h5 id="4-2-课后作业"><a href="#4-2-课后作业" class="headerlink" title="4.2 课后作业"></a>4.2 课后作业</h5><p><strong>1.fastq与fasta文件转换</strong></p>
+<pre><code class="sh">awk &#39;&#123; if(NR%4 == 1)&#123;print &quot;&gt;&quot; substr($0, 2)&#125; &#125; &#123;if(NR%4 == 2)&#123;print&#125; &#125;&#39; fastq &gt; fasta
+</code></pre>
+<p><strong>2.从gff或者gft文件中获取基因的ID与symbol对应关系，以及biotype类型</strong></p>
+<p>应用：ID与symbol转换本地化，不依赖于第三方工具和软件包，并可以根据biotype类型区分mRNA，lncRNA以及miRNA等信息。</p>
+<pre><code class="bash"># 从gff或者gft文件中获取ID与symbol对应关系，以及biotype类型
+zless -S Homo_sapiens.GRCh38.95.gtf.gz  |awk -F&#39;\t&#39; &#39;&#123;if($3==&quot;gene&quot;)&#123;print$9&#125;&#125;&#39; |awk -F&#39;;&#39; &#39;&#123;print$1,$3,$5&#125;&#39; |awk &#39;&#123;print$2&quot;\t&quot;$4&quot;\t&quot;$6&#125;&#39; |sed &#39;s/&quot;//g&#39; |grep &#39;protein_coding&#39; &gt;protein_coding_id2name.xls
+</code></pre>
+<h5 id="4-3-比对-hisat2"><a href="#4-3-比对-hisat2" class="headerlink" title="4.3 比对:hisat2"></a>4.3 比对:hisat2</h5><h6 id="构建索引"><a href="#构建索引" class="headerlink" title="构建索引"></a>构建索引</h6><pre><code class="bash"># 进入参考基因组目录
+cd $HOME/database/genome/GRCh38_release104
+
+# Hisat2构建索引，构建索引时间比较长，建议携程sh脚本提交后台运行
+hisat2-build Homo_sapiens.GRCh38.dna.primary_assembly.fa Homo_sapiens.GRCh38.dna.primary_assembly
+
+# 提交后台
+nohup sh index.sh &gt;index.sh.log &amp;
+</code></pre>
+<h6 id="单样本"><a href="#单样本" class="headerlink" title="单样本"></a>单样本</h6><pre><code class="bash"># 进入比对文件夹
+cd $HOME/project/Human-16-Asthma-Trans/Mapping/Hisat2
+
+# 输入输出定义文件夹
+index=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.dna.primary_assembly
+inputdir=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore/
+outdir=$HOME/project/Human-16-Asthma-Trans/Mapping/Hisat2
+
+# 单个样本比对
+hisat2 -p 5 -x  $&#123;index&#125; \
+-1 $&#123;inputdir&#125;/SRR1039510_1_val_1.fq.gz \
+-2 $&#123;inputdir&#125;/SRR1039510_2_val_2.fq.gz \
+-S $&#123;outdir&#125;/SRR1039510.Hisat_aln.sam
+
+# sam转bam
+samtools sort -@ 6 -o SRR1039510.Hisat_aln.sorted.bam SRR1039510.Hisat_aln.sam
+
+# 对bam建索引
+samtools index SRR1039510.Hisat_aln.sorted.bam SRR1039510.Hisat_aln.sorted.bam.bai
+</code></pre>
+<h6 id="多样本"><a href="#多样本" class="headerlink" title="多样本"></a>多样本</h6><pre><code class="bash"># 多个样本批量进行比对，排序，建索引
+# Hisat.sh内容： 注意命令中的-，表示占位符，表示|管道符前面的输出。
+# vim Hisat.sh
+index=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.dna.primary_assembly
+inputdir=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore/
+outdir=$HOME/project/Human-16-Asthma-Trans/Mapping/Hisat2
+
+cat ../../data/cleandata/trim_galore/ID | while read id
+do
+  hisat2 -p 5 -x $&#123;index&#125; -1 $&#123;inputdir&#125;/$&#123;id&#125;_1_val_1.fq.gz -2 $&#123;inputdir&#125;/$&#123;id&#125;_2_val_2.fq.gz 2&gt;$&#123;id&#125;.log  | samtools sort -@ 3 -o $&#123;outdir&#125;/$&#123;id&#125;.Hisat_aln.sorted.bam - &amp;&amp;  samtools index $&#123;outdir&#125;/$&#123;id&#125;.Hisat_aln.sorted.bam $&#123;outdir&#125;/$&#123;id&#125;.Hisat_aln.sorted.bam.bai
+done
+
+# 统计比对情况
+multiqc -o ./    SRR*log
+
+# 提交后台运行
+nohup sh Hisat.sh &gt;Hisat.log &amp;
+</code></pre>
+<h5 id="4-4-比对-subjunc"><a href="#4-4-比对-subjunc" class="headerlink" title="4.4 比对:subjunc"></a>4.4 比对:subjunc</h5><h6 id="构建索引-1"><a href="#构建索引-1" class="headerlink" title="构建索引"></a>构建索引</h6><pre><code class="bash"># 进入参考基因组目录
+cd $HOME/database/genome/GRCh38_release104
+
+# subjunc构建索引，构建索引时间比较长，建议携程sh脚本提交后台运行
+subread-buildindex -o Homo_sapiens.GRCh38.dna.primary_assembly Homo_sapiens.GRCh38.dna.primary_assembly.fa
+</code></pre>
+<h6 id="单样本-1"><a href="#单样本-1" class="headerlink" title="单样本"></a>单样本</h6><pre><code class="bash"># 进入文件夹
+cd $HOME/project/Human-16-Asthma-Trans/Mapping/Subjunc
+
+# 输入输出定义文件夹，上课使用的index为教师目录
+index=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.dna.primary_assembly
+inputdir=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore
+outdir=$HOME/project/Human-16-Asthma-Trans/Mapping/Subjunc
+ 
+# subjunc单样本比对
+subjunc -T 6 -i $&#123;index&#125; \
+        -r $&#123;inputdir&#125;/SRR1039510_1_val_1.fq.gz \
+        -R $&#123;inputdir&#125;/SRR1039510_2_val_2.fq.gz \
+        -o $&#123;outdir&#125;/SRR1039510.Subjunc.bam \
+        &gt;$&#123;outdir&#125;/SRR1039510.Subjunc.log
+
+# 排序以及构建bam索引 
+samtools sort -@ 6 -o SRR1039510.Subjunc.sorted.bam SRR1039510.Subjunc.bam
+
+# 建索引，.bai结尾的文件为索引
+samtools index SRR1039510.Subjunc.sorted.bam  SRR1039510.Subjunc.sorted.bam.bai
+</code></pre>
+<h6 id="subjunc多样本比对"><a href="#subjunc多样本比对" class="headerlink" title="subjunc多样本比对"></a>subjunc多样本比对</h6><pre><code class="bash"># vim subjunc.sh
+index=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.dna.primary_assembly
+inputdir=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore
+outdir=$HOME/project/Human-16-Asthma-Trans/Mapping/Subjunc
+
+cat ../../data/cleandata/trim_galore/ID | while read id
+do
+  subjunc -T 10 -i $&#123;index&#125; -r $&#123;inputdir&#125;/$&#123;id&#125;_1_val_1.fq.gz -R $&#123;inputdir&#125;/$&#123;id&#125;_2_val_2.fq.gz -o $&#123;outdir&#125;/$&#123;id&#125;.Subjunc.bam 1&gt;$&#123;outdir&#125;/$&#123;id&#125;.Subjunc.log 2&gt;&amp;1 &amp;&amp; samtools sort -@ 6 -o $&#123;outdir&#125;/$&#123;id&#125;.Subjunc.sorted.bam  $&#123;outdir&#125;/$&#123;id&#125;.Subjunc.bam &amp;&amp; samtools index $&#123;outdir&#125;/$&#123;id&#125;.Subjunc.sorted.bam $&#123;outdir&#125;/$&#123;id&#125;.Subjunc.sorted.bam.bai
+done
+
+# 运行
+nohup sh subjunc.sh &gt;subjunc.log &amp;
+</code></pre>
+<h4 id="5-sam-x2F-bam应用"><a href="#5-sam-x2F-bam应用" class="headerlink" title="5.sam&#x2F;bam应用"></a>5.sam&#x2F;bam应用</h4><h5 id="5-1-统计比对结果"><a href="#5-1-统计比对结果" class="headerlink" title="5.1 统计比对结果"></a>5.1 统计比对结果</h5><pre><code class="bash"># 单个样本
+samtools flagstat -@ 3 SRR1039510.Hisat_aln.sorted.bam
+
+# 多个样本，vim flagstat.sh
+ls *.sorted.bam | while read id
+do
+  samtools flagstat -@ 10 $&#123;id&#125; &gt; $&#123;id/bam/flagstat&#125;
+done
+
+# 质控
+multiqc -o ./  *.flagstat
+
+# 运行
+nohup sh flagstat.sh &gt;flagstat.log &amp;
+</code></pre>
+<h5 id="5-2-samtools工具使用"><a href="#5-2-samtools工具使用" class="headerlink" title="5.2 samtools工具使用"></a>5.2 samtools工具使用</h5><pre><code class="bash"># view查看bam文件
+samtools view SRR1039510.Hisat_aln.sorted.bam
+samtools view -H SRR1039510.Hisat_aln.sorted.bam
+samtools view -h SRR1039510.Hisat_aln.sorted.bam
+
+# index对bam文件建索引
+samtools index SRR1039510.Hisat_aln.sorted.bam SRR1039510.Hisat_aln.sorted.bam.bai
+
+# flagstat统计比对结果
+samtools flagstat -@ 3 SRR1039510.Hisat_aln.sorted.bam
+
+# sort排序 sam转bam并排序
+samtools sort -@ 3 -o SRR1039510.Hisat_aln.sorted.bam SRR1039510.Hisat_aln.sam
+
+# depth统计测序深度
+# 得到的结果中，一共有3列以指标分隔符分隔的数据，第一列为染色体名称，第二列为位点，第三列为覆盖深度
+samtools depth SRR1039510.Hisat_aln.sorted.bam &gt;SRR1039510.Hisat_aln.sorted.bam.depth.txt
+
+# 计算某一个基因的测序深度
+# 找到基因的坐标
+zless -S Homo_sapiens.GRCh38.95.gff3.gz |awk &#39;&#123;if($3==&quot;gene&quot;)print&#125;&#39; |grep &#39;ID=gene:ENSG00000186092&#39; |awk &#39;&#123;print $1&quot;\t&quot;$4&quot;\t&quot;$5&#125;&#39; &gt;ENSG00000186092.bed
+
+samtools depth  -b  ENSG00000186092.bed SRR1039510.Hisat_aln.sorted.bam &gt;ENSG00000186092.bed.depth
+
+# 如何找到多比对的reads，flag值的理解
+# (0x100) 代表着多比对情况，所以直接用samtools view -f 0x100可以提取 multiple比对的 情况
+</code></pre>
+<h4 id="6-表达定量"><a href="#6-表达定量" class="headerlink" title="6.表达定量"></a>6.表达定量</h4><h5 id="6-1-featureCounts"><a href="#6-1-featureCounts" class="headerlink" title="6.1 featureCounts"></a>6.1 featureCounts</h5><p>使用featureCounts对bam文件进行定量。</p>
+<pre><code class="bash">cd $HOME/project/Human-16-Asthma-Trans/Expression/featureCounts
+
+## 定义输入输出文件夹
+gtf=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.95.gtf.gz
+inputdir=$HOME/project/Human-16-Asthma-Trans/Mapping/Hisat2/
+
+# featureCounts对bam文件进行计数
+featureCounts -T 6 -p -t exon -g gene_id -a $gtf -o all.id.txt $inputdir/*.sorted.bam
+
+# 对定量结果质控
+multiqc all.id.txt.summary
+
+# 得到表达矩阵
+cat all.id.txt | cut -f1,7- &gt; counts.txt
+
+# 处理表头，/teach/t_rna/要换成自己的路径
+less -S all.id.txt |grep -v &#39;#&#39; |cut -f 1,7- |sed &#39;s#/teach/t_rna/project/Human-16-Asthma-Trans/Mapping/Hisat2//##g&#39; |sed &#39;s#.Hisat_aln.sorted.bam##g&#39; &gt;raw_counts.txt
+
+
+# 列对齐显示
+head raw_counts.txt  |column -t
+</code></pre>
+<h5 id="6-2-salmon定量"><a href="#6-2-salmon定量" class="headerlink" title="6.2 salmon定量"></a>6.2 salmon定量</h5><h6 id="构建索引-2"><a href="#构建索引-2" class="headerlink" title="构建索引"></a>构建索引</h6><pre><code class="bash">cd $HOME/database/genome/GRCh38_release104
+
+# 构建salmon索引
+salmon index -t Homo_sapiens.GRCh38.cdna.all.fa.gz -i Homo_sapiens.GRCh38.cdna.all.salmon
+</code></pre>
+<h6 id="单个样本"><a href="#单个样本" class="headerlink" title="单个样本"></a>单个样本</h6><pre><code class="bash">cd $HOME/project/Human-16-Asthma-Trans/Expression/Salmon
+
+# 定义文件夹
+index=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.cdna.all.salmon/
+input=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore
+outdir=$HOME/project/Human-16-Asthma-Trans/Expression/Salmon
+
+# 单样本测试：\后面不能有空格，否则会报错
+salmon quant -i $index -l A -p 5 \
+             -1 $input/SRR1039510_1_val_1.fq.gz \
+             -2 $input/SRR1039510_2_val_2.fq.gz \
+             -o $outdir/SRR1039510.quant
+</code></pre>
+<h6 id="多个样本"><a href="#多个样本" class="headerlink" title="多个样本"></a>多个样本</h6><pre><code class="bash"># 编写脚本，使用salmon批量对目录下所有fastq文件进行定量
+# vim salmon.sh
+index=/home/t_rna/database/genome/GRCh38_release95/Homo_sapiens.GRCh38.cdna.all.salmon/
+input=$HOME/project/Human-16-Asthma-Trans/data/cleandata/trim_galore
+outdir=$HOME/project/Human-16-Asthma-Trans/Expression/Salmon
+
+cat ../../data/cleandata/trim_galore/ID |while read id 
+do
+  salmon quant -i $&#123;index&#125; -l A -1 $&#123;input&#125;/$&#123;id&#125;_1_val_1.fq.gz -2 $&#123;input&#125;/$&#123;id&#125;_2_val_2.fq.gz -p 5 -o $&#123;outdir&#125;/$&#123;id&#125;.quant
+done
+
+# 后台运行脚本
+nohup bash salmon.sh 1&gt;salmon.log 2&gt;&amp;1 &amp;
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">谢淳</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/05/09/first/">http://example.com/2023/05/09/first/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">谢淳的生信杂货铺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/10/01-%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%88%9D%E8%AF%86/" title="01-生物信息学初识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">01-生物信息学初识</div></div></a></div><div class="next-post pull-right"><a href="/2023/05/09/article-title/" title="第一篇文章"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第一篇文章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">谢淳</div><div class="author-info__description">希望谢淳在生物信息的路上走得更远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E5%BD%95%E7%BB%84%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">转录组测序分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">1.工作目录管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-%E7%9B%AE%E5%BD%95%E4%B8%80%E8%A7%88"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 目录一览</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-%E8%AF%A6%E7%BB%86%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 详细命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E8%B4%A8%E6%8E%A7"><span class="toc-number">1.2.</span> <span class="toc-text">2.数据质控</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-fastqc"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 fastqc</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%E7%AD%94%E6%A1%88"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 课后习题答案</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">3.数据过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-trim-galore%E8%BF%87%E6%BB%A4"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 trim_galore过滤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-fastp%E8%BF%87%E6%BB%A4"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 fastp过滤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4%E5%89%8D%E5%90%8E%E6%AF%94%E8%BE%83"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 数据过滤前后比较</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E6%AF%94%E5%AF%B9"><span class="toc-number">1.4.</span> <span class="toc-text">4.数据比对</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-%E5%8F%82%E8%80%83%E5%9F%BA%E5%9B%A0%E7%BB%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 参考基因组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 课后作业</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-%E6%AF%94%E5%AF%B9-hisat2"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 比对:hisat2</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">构建索引</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%95%E6%A0%B7%E6%9C%AC"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">单样本</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E6%A0%B7%E6%9C%AC"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">多样本</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-4-%E6%AF%94%E5%AF%B9-subjunc"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4 比对:subjunc</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E7%B4%A2%E5%BC%95-1"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">构建索引</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%95%E6%A0%B7%E6%9C%AC-1"><span class="toc-number">1.4.4.2.</span> <span class="toc-text">单样本</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#subjunc%E5%A4%9A%E6%A0%B7%E6%9C%AC%E6%AF%94%E5%AF%B9"><span class="toc-number">1.4.4.3.</span> <span class="toc-text">subjunc多样本比对</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-sam-x2F-bam%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">5.sam&#x2F;bam应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-%E7%BB%9F%E8%AE%A1%E6%AF%94%E5%AF%B9%E7%BB%93%E6%9E%9C"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 统计比对结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-samtools%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 samtools工具使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%A1%A8%E8%BE%BE%E5%AE%9A%E9%87%8F"><span class="toc-number">1.6.</span> <span class="toc-text">6.表达定量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-1-featureCounts"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1 featureCounts</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-2-salmon%E5%AE%9A%E9%87%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2 salmon定量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E7%B4%A2%E5%BC%95-2"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">构建索引</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%95%E4%B8%AA%E6%A0%B7%E6%9C%AC"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">单个样本</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%A0%B7%E6%9C%AC"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">多个样本</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/10/01-%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%88%9D%E8%AF%86/" title="01-生物信息学初识">01-生物信息学初识</a><time datetime="2023-05-10T09:33:49.000Z" title="发表于 2023-05-10 17:33:49">2023-05-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/09/first/" title="RNA-seq">RNA-seq</a><time datetime="2023-05-09T08:56:03.000Z" title="发表于 2023-05-09 16:56:03">2023-05-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/09/article-title/" title="第一篇文章">第一篇文章</a><time datetime="2023-05-09T07:59:01.000Z" title="发表于 2023-05-09 15:59:01">2023-05-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="第一篇文章">第一篇文章</a><time datetime="2023-05-09T07:59:01.000Z" title="发表于 2023-05-09 15:59:01">2023-05-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/09/hello-world/" title="Hello World">Hello World</a><time datetime="2023-05-09T05:53:47.164Z" title="发表于 2023-05-09 13:53:47">2023-05-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 谢淳</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
