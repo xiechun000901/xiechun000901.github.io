@@ -1,3 +1,5 @@
+http://example.com/2023/05/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(4)/
+http://example.com/2023/05/29/Ubuntu%20or%20Centos_/
 http://example.com/2023/05/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(3)/
 http://example.com/2023/05/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(2)/
 http://example.com/2023/05/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(1)/
@@ -9,7 +11,9 @@ http://example.com/categories/index.html
 http://example.com/2023/05/09/first/
 http://example.com/2023/05/09/hello-world/
 http://example.com/
-http://example.com/tags/%E5%B8%8C%E6%9C%9B%E8%87%AA%E5%B7%B1%E5%9C%A8%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E9%A2%86%E5%9F%9F%E8%B5%B0%E7%9A%84%E6%9B%B4%E8%BF%9C%EF%BC%8C%E6%9C%89%E6%96%B0%E7%9A%84%E6%94%B6%E8%8E%B7/
 http://example.com/tags/PS3/
 http://example.com/tags/Games/
+http://example.com/tags/%E5%B8%8C%E6%9C%9B%E8%87%AA%E5%B7%B1%E5%9C%A8%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E9%A2%86%E5%9F%9F%E8%B5%B0%E7%9A%84%E6%9B%B4%E8%BF%9C%EF%BC%8C%E6%9C%89%E6%96%B0%E7%9A%84%E6%94%B6%E8%8E%B7/
+http://example.com/tags/bio/
+http://example.com/tags/computer/
 http://example.com/categories/Diary/

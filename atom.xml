@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-05-27T16:20:29.274Z</updated>
+  <updated>2023-05-29T14:13:57.865Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu和centos选谁呢？</title>
+    <link href="http://example.com/2023/05/29/Ubuntu%20or%20Centos_/"/>
+    <id>http://example.com/2023/05/29/Ubuntu%20or%20Centos_/</id>
+    <published>2023-05-28T16:00:00.000Z</published>
+    <updated>2023-05-29T14:13:57.865Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p><a name="j6YLe"></a></p><h3 id="Ubuntu和centos选谁呢？"><a href="#Ubuntu和centos选谁呢？" class="headerlink" title="Ubuntu和centos选谁呢？"></a>Ubuntu和centos选谁呢？</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685288045584-0b8b4844-4bf5-4cb9-b0f9-b876a0834e2e.png#averageHue=%23ddd888&clientId=u06226b80-8332-4&from=paste&height=123&id=u13210c8a&originHeight=123&originWidth=115&originalType=binary&ratio=1&rotation=0&showTitle=false&size=10846&status=done&style=none&taskId=ucb44b71b-a132-4e38-acd0-4c0ca0de3be&title=&width=115" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685288052048-373e5b9f-1a46-4b87-88a5-44179247b63a.png#averageHue=%23f3c4b4&clientId=u06226b80-8332-4&from=paste&height=112&id=u0f7b0e89&originHeight=112&originWidth=114&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5871&status=done&style=none&taskId=uad170592-2cee-4cb8-9bc7-860c9d7ad9e&title=&width=114" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685288124379-d1d7dce2-61ce-4248-ad4a-e6c212348c78.png#averageHue=%23e2ceb5&clientId=u06226b80-8332-4&from=paste&height=202&id=u6b8a8428&originHeight=512&originWidth=562&originalType=binary&ratio=1&rotation=0&showTitle=false&size=289051&status=done&style=none&taskId=uffa4ba6c-4353-4793-8ecf-b21a3630263&title=&width=222" alt="image.png"><br />Ubuntu和CentOS是Linux当中非常著名的两个发行版本。很多生物信息软件都会分别提供这两个系统版本。Ubuntu基于Debian发行版和GNOME桌面环境，是一个以桌面应用为主的Linux操作系统。CentOS的全称CommunityEnterpriseOperatingSystem，中文意思是：社区企业操作系统是Linux发行版之一，CentOS是一个基于RedHatLinux提供的可自由使用源代码的企业级Linux发行版本。<br /><strong>一些软件会提供多个发行版本可供选择：</strong><br /><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685287929226-55bf2f62-727f-49a3-aa8e-082422f024bf.png#averageHue=%23f8f8f8&clientId=u4012d753-83ba-4&from=paste&height=372&id=u8a111143&originHeight=372&originWidth=894&originalType=binary&ratio=1&rotation=0&showTitle=false&size=58603&status=done&style=none&taskId=u2fa2d02b-5d1c-4879-b165-cc1210191b7&title=&width=894" alt="image.png"><br />由于很多个人开发者使用的环境大多为ubuntu系统，因此，近年来更多的生物信息软件针对ubuntu系统更友好一些。比如，ubuntu系统默认的系统软件版本更新，例如gcc，glibc，zlib等。这样就导致这些软件安装到ubuntu系统更容易一些。不过如果使用bioconda安装，二者之间的差别几乎可以忽略不计。<br />Ubuntu是一款优秀的开源操作系统，其安全、稳定、易用和良好的兼容性，使其成为生物信息学领域广泛使用的操作系统之一，主要应用于以下方面：</p><p>1.数据管理和存储<br />Ubuntu可以作为服务器操作系统，可用于搭建数据处理服务器和存储系统，如LAMP（Linux+Apache+MySQL+PHP）服务器和云存储系统，将传输、存储和管理数据等任务集成在一起，便于文件传输和数据安全管理。</p><p>2.特定领域的分析软件<br />Ubuntu已经成为赋予生物信息学科学家快速计算和数据分析工具的操作系统。它提供了丰富的生物信息学分析软件，包括BLAST、BioPython、R、Bioperl、ClustalW、SciPy、samtools等常用的生物信息分析工具，在生物信息领域中应用广泛。</p><p>3.Docker容器技术<br />Ubuntu支持Docker容器技术，使用Docker容器能够方便地构建、部署和运行生物信息学软件，而不需要安装某些软件的依赖库。这种方式可以减少环境配置时间和配置复杂度，同时增加了软件安全性和稳定性。</p><p>总之，Ubuntu在生物信息学领域中应用广泛，不仅提供方便的软件和服务器架构，而且具有良好的兼容性和稳定性，使其成为优秀的生物信息学操作系统之一。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;&lt;a name=&quot;j6YLe&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Ubuntu和centos选谁呢？&quot;&gt;&lt;a href=&quot;#Ubuntu和centos选谁呢？&quot; class=&quot;headerlink&quot; title=&quot;Ubunt</summary>
+      
+    
+    
+    
+    <category term="Diary" scheme="http://example.com/categories/Diary/"/>
+    
+    
+    <category term="PS3" scheme="http://example.com/tags/PS3/"/>
+    
+    <category term="Games" scheme="http://example.com/tags/Games/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器软件介绍(4)</title>
+    <link href="http://example.com/2023/05/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(4)/"/>
+    <id>http://example.com/2023/05/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(4)/</id>
+    <published>2023-05-28T16:00:00.000Z</published>
+    <updated>2023-05-29T14:16:30.422Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p><a name="HncPg"></a></p><h2 id="熟悉Linux"><a href="#熟悉Linux" class="headerlink" title="熟悉Linux"></a>熟悉Linux</h2><p><a name="TQaAq"></a></p><h3 id="1、Linux简介"><a href="#1、Linux简介" class="headerlink" title="1、Linux简介"></a>1、Linux简介</h3><p>Linux属于一种计算机操作系统，操作系统OperatingSystem，简称OS。是管理和控制计算机硬件与软件资源的计算机程序，是直接运行在“裸机”上的最基本的系统软件，任何其他软件都必须在操作系统的支持下才能运行。与windows系统和苹果的macos类似。<br />Linux操作系统具有广泛的应用，可以安装到各种系统之上。手机的Android也是一种linux操作系统，此外，各种数据中心的服务器上安装的也大部分是Linux操作系统。Linux操作系统诞生于1991年10月5日。1991年8月一位来自芬兰赫尔辛基大学的年轻人LinusBenedictTorvalds，对外发布了一套全新的操作系统。Linux这个名字也是Linus与Unix名字的组合。那么linux到底该如何发音呢。有“里那克斯”，还是“里讷克斯”，或者是“里纽克斯”。Linux的正确读音。音标是[li:nэks]重音在“哩”上。<br />Linux相比于windows和macos具有很多显著的优势。<br />第一，Linux系统是开源免费的，可以安装在多种硬件设备之上；<br />第二，稳定并且效率更高；<br />第三，支持多任务多用户；<br />第四，安全性高；<br /><strong>此为Linux图形化界面：</strong><br /><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685286179250-ac301106-4456-4872-a0aa-a895a92a33cf.png#averageHue=%2384a7bf&clientId=u4012d753-83ba-4&from=paste&height=952&id=u9d4a347d&originHeight=952&originWidth=1652&originalType=binary&ratio=1&rotation=0&showTitle=false&size=558903&status=done&style=none&taskId=u25fefa35-238c-4d61-9c27-8fa4392e05c&title=&width=1652" alt="image.png"><br><a name="QP6VW"></a></p><h3 id="2-Linux发行版本介绍"><a href="#2-Linux发行版本介绍" class="headerlink" title="2.Linux发行版本介绍"></a>2.Linux发行版本介绍</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685286300710-e80e0ac3-fb50-4ea8-8acf-923d1cb5bd5e.png#averageHue=%23cfe0a1&clientId=u4012d753-83ba-4&from=paste&height=471&id=uf5dcfea6&originHeight=471&originWidth=952&originalType=binary&ratio=1&rotation=0&showTitle=false&size=309258&status=done&style=none&taskId=u24ba1fe2-3a6b-4a6b-9ca3-a4f8a1ec1b5&title=&width=952" alt="image.png"><br />Linux从最开始就是开源并且免费的，这也深刻影响了计算机的世界，我们今天所做的生物信息要学习Linux系统与最开始的开源免费有很大的关系。由于开源免费的原因，Linux存在多种发行版本。所谓发行版本，要理解Linux广义和狭义的概念。通常说Linux是指其广义概念，即指Linux发行版本。而狭义的Linux仅指Linux系统内核。Linux内核指的是一个由LinusTorvalds负责维护，提供硬件抽象层、磁盘、文件系统控制及多任务功能的系统核心程序。Linux发行套件系统是我们常说的Linux操作系统，也就是由Linux内核与各种常用软件的集合产品。Linux发行版本就是Linux内核加上打包好的一些软件，包括桌面程序，办公程序等。类似于不同手机厂家有单独的操作系统一样。全球大约有数百款的Linux系统版本，每个系统版本都有自己的特性和目标人群—有的主打稳定性和安全性，有的主打免费使用，还有的主要定制化等特点。常见的包括Ubuntu，Redhat，CentOS，OpenSUSE，Fedora，Debian等，它们都使用了Linux内核。国内也有麒麟，统信，deepin等发行版本。<br><a name="j6YLe"></a></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;&lt;a name=&quot;HncPg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;熟悉Linux&quot;&gt;&lt;a href=&quot;#熟悉Linux&quot; class=&quot;headerlink&quot; title=&quot;熟悉Linux&quot;&gt;&lt;/a&gt;熟悉Linux&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    <category term="Diary" scheme="http://example.com/categories/Diary/"/>
+    
+    
+    <category term="bio" scheme="http://example.com/tags/bio/"/>
+    
+    <category term="computer" scheme="http://example.com/tags/computer/"/>
+    
+  </entry>
   
   <entry>
     <title>服务器软件介绍(1)</title>
