@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>走进R包的世界(3) | 谢淳的生信杂货铺</title><meta name="author" content="谢淳"><meta name="copyright" content="谢淳"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ggplot 常用绘图函数 ggplot2 绘图案例ggplot（以及ggplot2包）是R语言中最流行的数据可视化包之一，它提供了一套直观和灵活的数据可视化语法，可以方便地创建各种艺术感十足的图形。ggplot构建在”图层”的概念之上，它允许用户通过添加层级和图形元素(如坐标轴、图例、注释等)到图形中的不同层来创建各种类型的图形。 ggplot2提供了很多种类型的图表， 包括：  散点图：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="走进R包的世界(3)">
+<meta property="og:url" content="http://example.com/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/index.html">
+<meta property="og:site_name" content="谢淳的生信杂货铺">
+<meta property="og:description" content="ggplot 常用绘图函数 ggplot2 绘图案例ggplot（以及ggplot2包）是R语言中最流行的数据可视化包之一，它提供了一套直观和灵活的数据可视化语法，可以方便地创建各种艺术感十足的图形。ggplot构建在”图层”的概念之上，它允许用户通过添加层级和图形元素(如坐标轴、图例、注释等)到图形中的不同层来创建各种类型的图形。 ggplot2提供了很多种类型的图表， 包括：  散点图：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-05-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-29T14:20:21.901Z">
+<meta property="article:author" content="谢淳">
+<meta property="article:tag" content="bio">
+<meta property="article:tag" content="computer">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '走进R包的世界(3)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-29 22:20:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="谢淳的生信杂货铺" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="谢淳的生信杂货铺"><span class="site-name">谢淳的生信杂货铺</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">走进R包的世界(3)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-28T16:00:00.000Z" title="发表于 2023-05-29 00:00:00">2023-05-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-29T14:20:21.901Z" title="更新于 2023-05-29 22:20:21">2023-05-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Diary/">Diary</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="走进R包的世界(3)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
+
+<p><a name="ID4bG"></a></p>
+<h2 id="ggplot-常用绘图函数"><a href="#ggplot-常用绘图函数" class="headerlink" title="ggplot 常用绘图函数"></a>ggplot 常用绘图函数</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685368544518-46077e6b-1d88-4eab-95d2-018f1cdc6123.png#averageHue=%23f6f5f4&clientId=uafe1ebcb-a562-4&from=paste&height=636&id=ub1d4f417&originHeight=636&originWidth=762&originalType=binary&ratio=1&rotation=0&showTitle=false&size=170727&status=done&style=none&taskId=u4ecba17f-b6d2-4b99-9c49-8d66988c5c7&title=&width=762" alt="image.png"><br><a name="nyu74"></a></p>
+<h2 id="ggplot2-绘图案例"><a href="#ggplot2-绘图案例" class="headerlink" title="ggplot2 绘图案例"></a>ggplot2 绘图案例</h2><p>ggplot（以及ggplot2包）是R语言中最流行的数据可视化包之一，它提供了一套直观和灵活的数据可视化语法，可以方便地创建各种艺术感十足的图形。ggplot构建在”图层”的概念之上，它允许用户通过添加层级和图形元素(如坐标轴、图例、注释等)到图形中的不同层来创建各种类型的图形。</p>
+<p>ggplot2提供了很多种类型的图表， 包括：</p>
+<ul>
+<li>散点图：用于展示两个变量之间的关系。</li>
+<li>直方图：用于展示数值型变量的分布。</li>
+<li>条形图：用于比较不同变量的值或某一变量的不同类别之间的值。</li>
+<li>箱线图：用于展示数值型变量的离群值、四分位数和中位数。</li>
+<li>折线图：用于展示连续数据和趋势。</li>
+</ul>
+<p>ggplot2还具有其他一些有用的可视化功能，如颜色、字体、标记、标注和图例的自定义等，使其成为一款非常强大和灵活的编程工具。</p>
+<p>以下是绘制一个简单的直方图的ggplot2的典型步骤：</p>
+<ol>
+<li>准备数据集：将您的数据集准备为data.frame或tibble格式的数据表。假设变量名为”variable”。 </li>
+<li>安装ggplot2： ggplot2是ggplot package的核心，可以通过以下命令从CRAN下载和安装：</li>
+</ol>
+<pre><code class="r">install.packages(&quot;ggplot2&quot;)
+</code></pre>
+<ol start="3">
+<li>构建直方图：使用ggplot() 和 geom_histogram() 函数来构建直方图。您可以在ggplot函数中设置数据集、x&#x2F;y轴描述性标签和图表标题等参数。下面是一个示例代码：</li>
+</ol>
+<pre><code class="r">library(ggplot2)
+
+ggplot(data, aes(x=variable)) + 
+  geom_histogram(bins = 30, fill = &quot;skyblue&quot;, color = &quot;black&quot;) +
+  ggtitle(&quot;Variable Distribution&quot;) +
+  xlab(&quot;Variable&quot;)
+</code></pre>
+<p>其中，data是您的数据框，”variable”是您的数据集中的变量名。”bins”参数表示您需要将数据分成多少组，”fill”参数表示您要绘制的图形的填充颜色，”color”参数表示柱子的颜色。</p>
+<ol start="4">
+<li>高级功能：ggplot2还提供了许多高级功能，如图例调整、坐标轴选择、颜色自定义等。例如，您可以使用theme()函数和 scale_fill_gradient() 函数来调整图例和颜色。</li>
+</ol>
+<p> **ggplot2 绘制基因组大小与基因数目相关性图  **</p>
+<pre><code class="r"> x &lt;- read.table(&quot;xiechun_test_representative.csv&quot;,sep = &quot;,&quot;,header = T);
+head(x) 
+ggplot(data = x,aes(x=Size,y=Genes))+geom_point()
+ggplot(data = x,aes(x=Size,y=Genes))+geom_point(size=1,color=&quot;blue&quot;)
+fit &lt;- lm(data = x,Genes~ Size) 
+fit ggplot(data = x,aes(x=Size,y=Genes))+geom_point(size=1,color=&quot;blue&quot;)+geom_abline(intercept = 286.6,slope = 843.7,col=&quot;red&quot;,lwd=1) 
+p &lt;- ggplot(data = x,aes(x=Size,y=Genes))+geom_point(size=1,color=&quot;blue&quot;)+geom_abline(intercept = 286.6,slope = 843.7,col=&quot;red&quot;,lwd=1) 
+p+annotate(geom = &quot;text&quot;,x=4,y=10000,label=&quot;y=286x+842.7\nR2=0.9676&quot;) 21 / 52 p+annotate(geom = &quot;text&quot;,x=4,y=10000,label=&quot;y=286x+842.7\nR2=0.9676&quot;)+labs(title=&quot;Genome Size vs Gene Number&quot;,x=&quot;Genome Size&quot;,y=&quot;Genes&quot;)  
+</code></pre>
+<p>这是一段使用R语言进行数据分析和可视化的代码。首先，代码从一个CSV文件中读入了数据，并以散点图的形式绘制了数据点。接着，代码使用线性回归模型拟合数据，并将回归线添加到散点图中，并给回归线添加了文本注释，包括斜率，截距和R平方值。最后，代码给图表添加了标题和坐标轴标签。这段代码的目的是展示基因组大小和基因数之间的关系，并探索这些变量之间的线性关系。<br /><strong>绘图结果：</strong><br /><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685369113379-a3d8d1fa-e76d-4516-b6ad-b9a05fc0b767.png#averageHue=%23efeeee&clientId=uafe1ebcb-a562-4&from=paste&height=589&id=u40ac070f&originHeight=589&originWidth=637&originalType=binary&ratio=1&rotation=0&showTitle=false&size=59998&status=done&style=none&taskId=uf7390400-f629-4869-ac7a-479d99f93ba&title=&width=637" alt="image.png"><br />总之，ggplot2是一款强大而灵活的数据可视化工具。它提供了实用而直观的语法，可以轻松创建各种类型的图形，也可以通过添加不同的图层和元素来实现高度自定义的结果。此外，ggplot2还具有广泛的用户社区和大量的文档和示例，使其成为R语言中应用最广泛的可视化包之一。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">谢淳</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/">http://example.com/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">谢淳的生信杂货铺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/bio/">bio</a><a class="post-meta__tags" href="/tags/computer/">computer</a><a class="post-meta__tags" href="/tags/R/">R</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(1)/" title="走进R包的世界(1)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">走进R包的世界(1)</div></div></a></div><div class="next-post pull-right"><a href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(2)/" title="走进R包的世界(2)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">走进R包的世界(2)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(1)/" title="走进R包的世界(1)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-29</div><div class="title">走进R包的世界(1)</div></div></a></div><div><a href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(2)/" title="走进R包的世界(2)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-29</div><div class="title">走进R包的世界(2)</div></div></a></div><div><a href="/2023/05/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(4)/" title="服务器软件介绍(4)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-29</div><div class="title">服务器软件介绍(4)</div></div></a></div><div><a href="/2023/05/29/%E6%B2%A1%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="没有服务器？3分钟搭建自己的服务器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-29</div><div class="title">没有服务器？3分钟搭建自己的服务器</div></div></a></div><div><a href="/2023/05/29/Ubuntu%20or%20Centos_/" title="Ubuntu和centos选谁呢？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-29</div><div class="title">Ubuntu和centos选谁呢？</div></div></a></div><div><a href="/2023/05/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(2)/" title="服务器软件介绍(2)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-28</div><div class="title">服务器软件介绍(2)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">谢淳</div><div class="author-info__description">希望谢淳在生物信息的路上走得更远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ggplot-%E5%B8%B8%E7%94%A8%E7%BB%98%E5%9B%BE%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">ggplot 常用绘图函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ggplot2-%E7%BB%98%E5%9B%BE%E6%A1%88%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">ggplot2 绘图案例</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/29/Ubuntu%20or%20Centos_/" title="Ubuntu和centos选谁呢？">Ubuntu和centos选谁呢？</a><time datetime="2023-05-28T16:00:00.000Z" title="发表于 2023-05-29 00:00:00">2023-05-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(4)/" title="服务器软件介绍(4)">服务器软件介绍(4)</a><time datetime="2023-05-28T16:00:00.000Z" title="发表于 2023-05-29 00:00:00">2023-05-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(1)/" title="走进R包的世界(1)">走进R包的世界(1)</a><time datetime="2023-05-28T16:00:00.000Z" title="发表于 2023-05-29 00:00:00">2023-05-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/" title="走进R包的世界(3)">走进R包的世界(3)</a><time datetime="2023-05-28T16:00:00.000Z" title="发表于 2023-05-29 00:00:00">2023-05-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(2)/" title="走进R包的世界(2)">走进R包的世界(2)</a><time datetime="2023-05-28T16:00:00.000Z" title="发表于 2023-05-29 00:00:00">2023-05-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 谢淳</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

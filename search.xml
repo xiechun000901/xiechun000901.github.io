@@ -20,9 +20,11 @@
       
         <tags>
             
-            <tag> PS3 </tag>
+            <tag> bio </tag>
             
-            <tag> Games </tag>
+            <tag> 生物信息学 </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -36,6 +38,120 @@
       <url>/2023/05/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0(4)/</url>
       
         <content type="html"><![CDATA[<span id="more"></span><p><a name="HncPg"></a></p><h2 id="熟悉Linux"><a href="#熟悉Linux" class="headerlink" title="熟悉Linux"></a>熟悉Linux</h2><p><a name="TQaAq"></a></p><h3 id="1、Linux简介"><a href="#1、Linux简介" class="headerlink" title="1、Linux简介"></a>1、Linux简介</h3><p>Linux属于一种计算机操作系统，操作系统OperatingSystem，简称OS。是管理和控制计算机硬件与软件资源的计算机程序，是直接运行在“裸机”上的最基本的系统软件，任何其他软件都必须在操作系统的支持下才能运行。与windows系统和苹果的macos类似。<br />Linux操作系统具有广泛的应用，可以安装到各种系统之上。手机的Android也是一种linux操作系统，此外，各种数据中心的服务器上安装的也大部分是Linux操作系统。Linux操作系统诞生于1991年10月5日。1991年8月一位来自芬兰赫尔辛基大学的年轻人LinusBenedictTorvalds，对外发布了一套全新的操作系统。Linux这个名字也是Linus与Unix名字的组合。那么linux到底该如何发音呢。有“里那克斯”，还是“里讷克斯”，或者是“里纽克斯”。Linux的正确读音。音标是[li:nэks]重音在“哩”上。<br />Linux相比于windows和macos具有很多显著的优势。<br />第一，Linux系统是开源免费的，可以安装在多种硬件设备之上；<br />第二，稳定并且效率更高；<br />第三，支持多任务多用户；<br />第四，安全性高；<br /><strong>此为Linux图形化界面：</strong><br /><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685286179250-ac301106-4456-4872-a0aa-a895a92a33cf.png#averageHue=%2384a7bf&clientId=u4012d753-83ba-4&from=paste&height=952&id=u9d4a347d&originHeight=952&originWidth=1652&originalType=binary&ratio=1&rotation=0&showTitle=false&size=558903&status=done&style=none&taskId=u25fefa35-238c-4d61-9c27-8fa4392e05c&title=&width=1652" alt="image.png"><br><a name="QP6VW"></a></p><h3 id="2-Linux发行版本介绍"><a href="#2-Linux发行版本介绍" class="headerlink" title="2.Linux发行版本介绍"></a>2.Linux发行版本介绍</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685286300710-e80e0ac3-fb50-4ea8-8acf-923d1cb5bd5e.png#averageHue=%23cfe0a1&clientId=u4012d753-83ba-4&from=paste&height=471&id=uf5dcfea6&originHeight=471&originWidth=952&originalType=binary&ratio=1&rotation=0&showTitle=false&size=309258&status=done&style=none&taskId=u24ba1fe2-3a6b-4a6b-9ca3-a4f8a1ec1b5&title=&width=952" alt="image.png"><br />Linux从最开始就是开源并且免费的，这也深刻影响了计算机的世界，我们今天所做的生物信息要学习Linux系统与最开始的开源免费有很大的关系。由于开源免费的原因，Linux存在多种发行版本。所谓发行版本，要理解Linux广义和狭义的概念。通常说Linux是指其广义概念，即指Linux发行版本。而狭义的Linux仅指Linux系统内核。Linux内核指的是一个由LinusTorvalds负责维护，提供硬件抽象层、磁盘、文件系统控制及多任务功能的系统核心程序。Linux发行套件系统是我们常说的Linux操作系统，也就是由Linux内核与各种常用软件的集合产品。Linux发行版本就是Linux内核加上打包好的一些软件，包括桌面程序，办公程序等。类似于不同手机厂家有单独的操作系统一样。全球大约有数百款的Linux系统版本，每个系统版本都有自己的特性和目标人群—有的主打稳定性和安全性，有的主打免费使用，还有的主要定制化等特点。常见的包括Ubuntu，Redhat，CentOS，OpenSUSE，Fedora，Debian等，它们都使用了Linux内核。国内也有麒麟，统信，deepin等发行版本。<br><a name="j6YLe"></a></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Diary </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bio </tag>
+            
+            <tag> computer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>走进R包的世界(1)</title>
+      <link href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(1)/"/>
+      <url>/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(1)/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><p><a name="gFS2x"></a></p><h2 id="ggplot2绘图-1"><a href="#ggplot2绘图-1" class="headerlink" title="ggplot2绘图(1)"></a>ggplot2绘图(1)</h2><p>ggplot2包提供了一个基于全面而连贯的语法的绘图系统。它弥补了R中创建图形缺乏一致性的缺点，使得用户可以创建有创新性的、新颖的图形类型。ggplot2是R语言绘图一个重要特性和优势。通过ggplot2，只需少量的代码，就可以绘制出高质量的图形，满足出版需要。ggplot2语法简介，逻辑清晰，功能强大，可以快速上手。在R语言中自成一派，目前也有越来越多的绘图包基于ggplot2进行二次开发，一般都是以“gg”开头，例如ggpubr，ggtree，ggvis，ggtree，ggstatsplot等。<br />ggplot是R语言中最受欢迎的数据可视化包之一。ggplot允许您使用图层的概念快速轻松地创建各种类型的统计图表，包括散点图、折线图、箱线图、热力图等。ggplot还提供了一系列强大的功能，如分组、颜色自定义、标记调整等，以将数据更好地呈现给用户。</p><p>ggplot的工作原理是将数据视为一系列图层。通过添加图层，您可以将数据可视化为散点图、线图、条形图等，同时控制颜色、字体、字体大小等格式，以创建专业的、高质量的数据可视化图表。</p><p>以下是绘制一个简单的散点图的ggplot的典型步骤：</p><ol><li>准备数据集：将您的数据集准备为一个data.frame或tibble格式的数据表。假设变量名为”X”和”Y”。</li><li>安装ggplot2：ggplot2是ggplotpackage的核心，可以通过以下命令从CRAN下载和安装：</li></ol><pre><code class="r">install.packages(&quot;ggplot2&quot;)</code></pre><ol start="3"><li>构建散点图：使用ggplot函数创建一个空的绘图区域，并使用geom_point函数绘制数据中的散点。您可以在ggplot函数中指定要使用的数据集和图形处理要素，例如图表的标题、x轴标签&#x2F;标题、y轴标签&#x2F;标题、x轴和y轴的刻度类型等。一个简单的例子如下：</li></ol><pre><code class="r">library(ggplot2)ggplot(data, aes(x=X, y=Y)) +   geom_point()</code></pre><p>其中，”data”是您的数据框，”X”和”Y”是对应您的数据集中的变量名。</p><ol start="4"><li>高级功能：ggplot还提供了许多高级功能，如标签调整、主题选择、颜色自定义等。您可以使用标记、颜色、字体、字体大小、背景等属性，来显示不同的数据类型、分类、分组。</li></ol><p>总之，ggplot是一个强大而灵活的数据可视化工具，它既可以简单地创建简单的散点图，也可以使用强大的叠加图层操作和主题选择功能创建高度个性化的数据图表。此外，ggplot还具有广泛的用户社区和大量的文档和示例，使其成为R语言中最广为使用和熟悉的数据可视化包之一。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Diary </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bio </tag>
+            
+            <tag> computer </tag>
+            
+            <tag> R </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>走进R包的世界(3)</title>
+      <link href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/"/>
+      <url>/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(3)/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><p><a name="ID4bG"></a></p><h2 id="ggplot-常用绘图函数"><a href="#ggplot-常用绘图函数" class="headerlink" title="ggplot 常用绘图函数"></a>ggplot 常用绘图函数</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685368544518-46077e6b-1d88-4eab-95d2-018f1cdc6123.png#averageHue=%23f6f5f4&clientId=uafe1ebcb-a562-4&from=paste&height=636&id=ub1d4f417&originHeight=636&originWidth=762&originalType=binary&ratio=1&rotation=0&showTitle=false&size=170727&status=done&style=none&taskId=u4ecba17f-b6d2-4b99-9c49-8d66988c5c7&title=&width=762" alt="image.png"><br><a name="nyu74"></a></p><h2 id="ggplot2-绘图案例"><a href="#ggplot2-绘图案例" class="headerlink" title="ggplot2 绘图案例"></a>ggplot2 绘图案例</h2><p>ggplot（以及ggplot2包）是R语言中最流行的数据可视化包之一，它提供了一套直观和灵活的数据可视化语法，可以方便地创建各种艺术感十足的图形。ggplot构建在”图层”的概念之上，它允许用户通过添加层级和图形元素(如坐标轴、图例、注释等)到图形中的不同层来创建各种类型的图形。</p><p>ggplot2提供了很多种类型的图表， 包括：</p><ul><li>散点图：用于展示两个变量之间的关系。</li><li>直方图：用于展示数值型变量的分布。</li><li>条形图：用于比较不同变量的值或某一变量的不同类别之间的值。</li><li>箱线图：用于展示数值型变量的离群值、四分位数和中位数。</li><li>折线图：用于展示连续数据和趋势。</li></ul><p>ggplot2还具有其他一些有用的可视化功能，如颜色、字体、标记、标注和图例的自定义等，使其成为一款非常强大和灵活的编程工具。</p><p>以下是绘制一个简单的直方图的ggplot2的典型步骤：</p><ol><li>准备数据集：将您的数据集准备为data.frame或tibble格式的数据表。假设变量名为”variable”。 </li><li>安装ggplot2： ggplot2是ggplot package的核心，可以通过以下命令从CRAN下载和安装：</li></ol><pre><code class="r">install.packages(&quot;ggplot2&quot;)</code></pre><ol start="3"><li>构建直方图：使用ggplot() 和 geom_histogram() 函数来构建直方图。您可以在ggplot函数中设置数据集、x&#x2F;y轴描述性标签和图表标题等参数。下面是一个示例代码：</li></ol><pre><code class="r">library(ggplot2)ggplot(data, aes(x=variable)) +   geom_histogram(bins = 30, fill = &quot;skyblue&quot;, color = &quot;black&quot;) +  ggtitle(&quot;Variable Distribution&quot;) +  xlab(&quot;Variable&quot;)</code></pre><p>其中，data是您的数据框，”variable”是您的数据集中的变量名。”bins”参数表示您需要将数据分成多少组，”fill”参数表示您要绘制的图形的填充颜色，”color”参数表示柱子的颜色。</p><ol start="4"><li>高级功能：ggplot2还提供了许多高级功能，如图例调整、坐标轴选择、颜色自定义等。例如，您可以使用theme()函数和 scale_fill_gradient() 函数来调整图例和颜色。</li></ol><p> **ggplot2 绘制基因组大小与基因数目相关性图  **</p><pre><code class="r"> x &lt;- read.table(&quot;xiechun_test_representative.csv&quot;,sep = &quot;,&quot;,header = T);head(x) ggplot(data = x,aes(x=Size,y=Genes))+geom_point()ggplot(data = x,aes(x=Size,y=Genes))+geom_point(size=1,color=&quot;blue&quot;)fit &lt;- lm(data = x,Genes~ Size) fit ggplot(data = x,aes(x=Size,y=Genes))+geom_point(size=1,color=&quot;blue&quot;)+geom_abline(intercept = 286.6,slope = 843.7,col=&quot;red&quot;,lwd=1) p &lt;- ggplot(data = x,aes(x=Size,y=Genes))+geom_point(size=1,color=&quot;blue&quot;)+geom_abline(intercept = 286.6,slope = 843.7,col=&quot;red&quot;,lwd=1) p+annotate(geom = &quot;text&quot;,x=4,y=10000,label=&quot;y=286x+842.7\nR2=0.9676&quot;) 21 / 52 p+annotate(geom = &quot;text&quot;,x=4,y=10000,label=&quot;y=286x+842.7\nR2=0.9676&quot;)+labs(title=&quot;Genome Size vs Gene Number&quot;,x=&quot;Genome Size&quot;,y=&quot;Genes&quot;)  </code></pre><p>这是一段使用R语言进行数据分析和可视化的代码。首先，代码从一个CSV文件中读入了数据，并以散点图的形式绘制了数据点。接着，代码使用线性回归模型拟合数据，并将回归线添加到散点图中，并给回归线添加了文本注释，包括斜率，截距和R平方值。最后，代码给图表添加了标题和坐标轴标签。这段代码的目的是展示基因组大小和基因数之间的关系，并探索这些变量之间的线性关系。<br /><strong>绘图结果：</strong><br /><img src="https://cdn.nlark.com/yuque/0/2023/png/34819848/1685369113379-a3d8d1fa-e76d-4516-b6ad-b9a05fc0b767.png#averageHue=%23efeeee&clientId=uafe1ebcb-a562-4&from=paste&height=589&id=u40ac070f&originHeight=589&originWidth=637&originalType=binary&ratio=1&rotation=0&showTitle=false&size=59998&status=done&style=none&taskId=uf7390400-f629-4869-ac7a-479d99f93ba&title=&width=637" alt="image.png"><br />总之，ggplot2是一款强大而灵活的数据可视化工具。它提供了实用而直观的语法，可以轻松创建各种类型的图形，也可以通过添加不同的图层和元素来实现高度自定义的结果。此外，ggplot2还具有广泛的用户社区和大量的文档和示例，使其成为R语言中应用最广泛的可视化包之一。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Diary </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bio </tag>
+            
+            <tag> computer </tag>
+            
+            <tag> R </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>走进R包的世界(2)</title>
+      <link href="/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(2)/"/>
+      <url>/2023/05/29/%E8%B5%B0%E8%BF%9BR%E5%8C%85%E7%9A%84%E4%B8%96%E7%95%8C(2)/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><p><a name="gFS2x"></a></p><h2 id="ggplot2绘图-2"><a href="#ggplot2绘图-2" class="headerlink" title="ggplot2绘图(2)"></a>ggplot2绘图(2)</h2><p>ggplot2采用一套新的图形语法，其中gg就表示图形语法（grammarofgraphic），理解了这套语法就理解了ggplot2绘图。传统的R绘图称为“画家模式”，首先布局一块画布，然后在画布上添加点线面，而ggplot2采用图层的方式，类似于“Photoshop”模式，通过累加不同的图层元素来绘图。<br /><strong>ggplot2的图层语法如下所示：</strong><br />1、数据（Data）<br />ggplot2绘图需要一个数据框，通过data选项添加。</p><pre><code class="r">ggplot(data=xccars)</code></pre><p>2、映射（Mapping）<br />映射是ggplot2中最重要的一个概念，将数据对应到不同的图形属性。通过mapping选项添加，然后使用aes()函数，aes来自于aesthetics（美学，美的哲学），数据可以分别映射到轴与y轴，同时可以添加更多属性，例如点的大小，形状，颜色，透明度等属性，映射完成之后ggplot会自动分配图形显示比例。</p><pre><code class="r">ggplot(data=xccars,mapping=aes(x=xiechun,y=mpg))</code></pre><p>3、几何对象（Geometric）<br />映射完成之后，就可以直接出图，根据映射数据的特点展示不同的图，需要注意数据的类型，<br />是离散型数据还是连续型数据，例如绘制条形图，箱线图等，必须包含离散数据。</p><pre><code class="r">ggplot(data=mtcars,mapping=aes(x=xc,y=mpg))+geom_point()ggplot(data=mtcars,mapping=aes(x=xc,y=mpg,size=mpg))+geom_point()ggplot(data=mtcars,mapping=aes(x=xc,y=mpg,size=mpg,shape=cyl))+geom_point()ggplot(data=mtcars,mapping=aes(x=xc,y=mpg,size=mpg,shape=cyl,color=cyl))+geom_point()</code></pre><p>4、标尺（Scale）<br />标尺用于重新调整默认的图形属性，例如修改坐标刻度，颜色属性等。</p><pre><code class="r">ggplot(data=mtcars,mapping=aes(x=xc,y=mpg,color=mpg))+geom_point()+scale_color_gradient(low=&quot;orange&quot;,high=&quot;red&quot;)</code></pre><p>5、统计变换（Statistics）</p><pre><code class="r">ggplot(data=mtcars,mapping=aes(x=xc,y=mpg))+geom_point()+stat_smooth(method=&#39;loess&#39;,formula=&#39;y~x&#39;)</code></pre><p>6、坐标（Coordinate）<br />坐标系统控制坐标轴，可以修改坐标轴范围，转换xy轴，笛卡尔坐标和极坐标转换。</p><pre><code class="r">ggplot(data=mtcars,mapping=aes(x=xc,y=mpg))+geom_point()+coord_flip()</code></pre><p>7、图层（Layer）<br />类似于Photoshop的图层概念，直接使用+号即可实现图层叠加，一张图内展示更多内容。</p><pre><code class="r">ggplot(data=mtcars,mapping=aes(x=cyl,y=mpg))+geom_point()+geom_boxplot()</code></pre><p>8、面（Facet）</p><pre><code class="r">ggplot(data=mtcars,mapping=aes(x=xc,y=mpg))+geom_point()+facet_grid(.~cyl)</code></pre><p>9、主题（Theme）</p><pre><code class="r">主题是一些元素默认设置构成的整体，ggplot2默认的主题是其简单设置就可以生成高质量的图片，无需进行更多修改。此外，除了默认的主题（theme_gray）之外，ggplot2还内置了许多其他的主题，可以快速切换，类似与手机系统一键更换主题一样容易。</code></pre><p>ggplot(data&#x3D;mtcars,mapping&#x3D;aes(x&#x3D;xc,y&#x3D;mpg))+geom_point()+theme_bw()<br />10、保存绘图</p><pre><code class="r">p&lt;-ggplot(data=mtcars,mapping=aes(x=xc,y=mpg))+geom_point()+theme_bw()ggsave(filename=&quot;mtcars.pdf&quot;,plot=p)</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Diary </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bio </tag>
+            
+            <tag> computer </tag>
+            
+            <tag> R </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>没有服务器？3分钟搭建自己的服务器</title>
+      <link href="/2023/05/29/%E6%B2%A1%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <url>/2023/05/29/%E6%B2%A1%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><p>对于windows用户来说，很多生物信息软件无法使用，服务器又没有租，难道就没有办法做生物信息了嘛?办法总比困难多，我们可以用虚拟机呀！<br><a name="uuZ8V"></a></p><h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a><strong>虚拟机</strong></h2><p>虚拟机是一种通过软件模拟硬件运行环境的虚拟计算机。它可以让一台物理计算机运行多个虚拟机，每个虚拟机都像一台独立的计算机，拥有自己的操作系统和应用程序。<br />虚拟机的主要作用在于：</p><ol><li>操作系统的隔离网状<br />通过虚拟机技术，可以在同一个物理机上运行多个虚拟机，每个虚拟机拥有独立的操作系统和应用程序，相互之间彼此独立，互相之间不会互相干扰，对于开发和测试环境的模拟和搭建非常有用。 </li><li>硬件资源的共享<br />不同的虚拟机可以共享物理计算机的硬件资源，如CPU、内存、硬盘等。通过对不同虚拟机的资源分配，可以实现系统的灵活管理，避免资源浪费和冲突。 </li><li>应用程序的隔离和版本控制<br />在虚拟机中安装不同的应用程序，可以将不同的程序隔离开 可以实现在同一个物理机上运行多个不同版本的应用程序，通过虚拟机实现版本控制，测试应用程序的同时不会影响其它应用程序和系统。 </li><li>同时运行多个操作系统<br />通过虚拟机技术，可以在同一台物理计算机上同时运行多个操作系统，以及测试和调试各种类型的操作系统。这对于开发和测试多平台软件应用程序非常有用。</li></ol><p>总之，虚拟机为我们提供了一种便捷的方式，使得我们可以在同一台计算机上运行多个独立的操作系统和应用程序，提高了计算资源的利用效率， 并为应用程序的开发、测试和运行提供了方便和灵活性。<br><a name="dz4ZA"></a></p><h2 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h2><p>VMware是一个广泛使用的虚拟化软件，允许在一个物理计算机上创建虚拟计算机，每个虚拟计算机都包含自己的操作系统和应用程序。VMware提供了三种不同的虚拟化解决方案，分别是VMware Workstation、VMware Player和VMware ESXi。</p><ol><li>VMware Workstation<br />VMware Workstation是一个功能强大的桌面虚拟化软件，可在个人计算机上创建多个虚拟机。它支持Windows、Linux和其他多个操作系统，支持共享文件、克隆虚拟机、多屏幕和语音输入等。 </li><li>VMware Player<br />VMware Player是一款免费的桌面虚拟化软件，类似于VMware Workstation，但功能更加简化，更适合个人用户。像Workstation一样，它支持Windows、Linux和其他多个操作系统。 </li><li>VMware ESXi<br />VMware ESXi是一个基于裸机的企业级虚拟化解决方案，可在物理服务器上创建多个虚拟机。ESXi不需要安装一个基于操作系统的虚拟化平台，而是直接在物理计算机或服务器上安装，提供更高的性能和安全性。</li></ol><p>VMware提供了一系列的虚拟机设备、完善的网络和安全管理功能，并且可以轻松集成到现有的IT环境中，方便用户升级和扩展系统。它适合企业级和个人用户使用，可以满足各种需要，如开发和测试、应用程序迁移、云计算和IT资源管理等等。<br><a name="W8vG6"></a></p><h2 id="虚拟机VMware的下载"><a href="#虚拟机VMware的下载" class="headerlink" title="虚拟机VMware的下载"></a><strong>虚拟机VMware的下载</strong></h2><p>官网地址：<a href="https://www.vmware.com/cn.html">https://www.vmware.com/cn.html</a><br />安装步骤可参考该<a href="https://blog.csdn.net/weixin_45912291/article/details/108894737">博客</a>(点击即可)</p>]]></content>
       
       
       <categories>
@@ -101,9 +217,11 @@
       
         <tags>
             
-            <tag> PS3 </tag>
+            <tag> bio </tag>
             
-            <tag> Games </tag>
+            <tag> 生物信息学 </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -175,7 +293,7 @@
       
         <tags>
             
-            <tag> 希望自己在生物信息领域走的更远，有新的收获 </tag>
+            <tag> 生物信息学 </tag>
             
         </tags>
       
@@ -194,7 +312,7 @@
       
         <tags>
             
-            <tag> 希望自己在生物信息领域走的更远，有新的收获 </tag>
+            <tag> 生物信息学 </tag>
             
         </tags>
       
